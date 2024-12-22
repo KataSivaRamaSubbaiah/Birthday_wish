@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Surprise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../icon.jpeg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./Style/calStyle.css">
+    <link rel="stylesheet" type="text/css" href="./Style/birthdayStyle.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            /*background: linear-gradient(#000, #30ff00);*/
+            border-radius: 25%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .header {
+            text-align: center;
+            padding: 32px;
+        }
+
+        .row {
+            display: -ms-flexbox;
+            /* IE 10 */
+            display: flex;
+            -ms-flex-wrap: wrap;
+            /* IE 10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        /* Create two equal columns that sits next to each other */
+        .column {
+            -ms-flex: 50%;
+            /* IE 10 */
+            flex: 50%;
+            padding: 0 4px;
+        }
+
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+        }
+
+        /* Style the buttons */
+        .btn {
+            border: none;
+            outline: none;
+            padding: 10px 16px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background-color: #ddd;
+        }
+
+        .btn.active {
+            background-color: #666;
+            color: white;
+        }
+
+        img:hover {
+            /* Start the shake animation and make the animation last for 0.5 seconds */
+            animation: shake 3s;
+
+            /* When the animation is finished, start again */
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            background-color: red;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        #myBtn:hover {
+            background-color: #000;
+            color: #fff;
+            opacity: 1;
+        }
+
+    </style>
+</head>
+
+<body oncontextmenu="return false">
+
+    <div class="Container">
+        <!-- last card -->
+        <div class="Picture-video" id="video">
+            <a href="BirthdayFav/birthdayFav.html">
+                <img class="Picture-img" src="https://iili.io/2wzD5OJ.md.jpg" alt="" />
+            </a>
+            <div class="Picture-note"><span>Happiiest Birthday 🎉💖</span></div>
+        </div>
+    </div>
+    <!-- other cards -->
+
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/1.jpeg" alt="" />
+        <div class="Picture-note"><span>Happy 🎉❤️</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/45.jpeg" alt="" />
+        <div class="Picture-note"><span>Birthday 🎂💕</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/11.jpeg" alt="" />
+        <div class="Picture-note"><span>Celebrate 🎉💖</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/24.jpeg" alt="" />
+        <div class="Picture-note"><span>Gift 🎁❤️</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/41.jpeg" alt="" />
+        <div class="Picture-note"><span>Steak 💕🎈</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/10.jpeg" alt="" />
+        <div class="Picture-note"><span>Joy ❤️🎂</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/42.jpeg" alt="" />
+        <div class="Picture-note"><span>Fun 🎈💖</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/4.jpeg" alt="" />
+        <div class="Picture-note"><span>Chill 💖🎂</span></div>
+    </div>
+
+    </div>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Up</button>
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+    </script>
+
+
+    <script>
+        // Get the elements with class="column"
+        var elements = document.getElementsByClassName("column");
+
+        // Declare a loop variable
+        var i;
+
+        // Full-width images
+        function one() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "100%"; // IE10
+                elements[i].style.flex = "100%";
+            }
+        }
+
+        // Two images side by side
+        function two() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "50%"; // IE10
+                elements[i].style.flex = "50%";
+            }
+        }
+
+        // Four images side by side
+        function four() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "25%"; // IE10
+                elements[i].style.flex = "25%";
+            }
+        }
+
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("myHeader");
+        var btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+    </script>
+    <script>
+        const pictures = document.querySelectorAll('.Picture');
+        var previousTouch = undefined;
+
+        function updateElementPosition(element, event) {
+            var movementX, movementY;
+
+            if (event.type === 'touchmove') {
+                const touch = event.touches[0];
+                movementX = previousTouch ? touch.clientX - previousTouch.clientX : 0;
+                movementY = previousTouch ? touch.clientY - previousTouch.clientY : 0;
+                console.log('touch', {
+                    movementX: movementX,
+                    newX: touch.clientX,
+                    oldX: previousTouch && previousTouch.clientX
+                });
+                previousTouch = touch;
+            } else {
+                movementX = event.movementX;
+                movementY = event.movementY;
+            }
+
+            const elementY = parseInt(element.style.top || 0) + movementY;
+            const elementX = parseInt(element.style.left || 0) + movementX;
+
+            element.style.top = elementY + "px";
+            element.style.left = elementX + "px";
+        }
+
+        function startDrag(element, event) {
+
+            const updateFunction = (event) => updateElementPosition(element, event);
+            const stopFunction = () => stopDrag({
+                update: updateFunction,
+                stop: stopFunction
+            });
+            document.addEventListener("mousemove", updateFunction);
+            document.addEventListener("touchmove", updateFunction);
+            document.addEventListener("mouseup", stopFunction);
+            document.addEventListener("touchend", stopFunction);
+
+        }
+
+        function stopDrag(functions) {
+            previousTouch = undefined;
+            document.removeEventListener("mousemove", functions.update);
+            document.removeEventListener("touchmove", functions.update);
+            document.removeEventListener("mouseup", functions.stop);
+            document.removeEventListener("touchend", functions.stop);
+        }
+
+        pictures.forEach(picture => {
+            const range = 100;
+            const randomX = Math.random() * (range * 2) - range;
+            const randomY = Math.random() * (range * 2) - range;
+            const randomRotate = Math.random() * (range / 2) - range / 4;
+            const startFunction = (event) => startDrag(picture, event);
+            picture.style.top = `${randomY}px`;
+            picture.style.left = `${randomX}px`;
+            picture.style.transform = `translate(-50%, -50%) rotate(${randomRotate}deg)`;
+            picture.addEventListener("mousedown", startFunction);
+            picture.addEventListener("touchstart", startFunction);
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Surprise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../icon.jpeg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./Style/calStyle.css">
+    <link rel="stylesheet" type="text/css" href="./Style/birthdayStyle.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            /*background: linear-gradient(#000, #30ff00);*/
+            border-radius: 25%;
+            background-color: red;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: grey;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .header {
+            text-align: center;
+            padding: 32px;
+        }
+
+        .row {
+            display: -ms-flexbox;
+            /* IE 10 */
+            display: flex;
+            -ms-flex-wrap: wrap;
+            /* IE 10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        /* Create two equal columns that sits next to each other */
+        .column {
+            -ms-flex: 50%;
+            /* IE 10 */
+            flex: 50%;
+            padding: 0 4px;
+        }
+
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+        }
+
+        /* Style the buttons */
+        .btn {
+            border: none;
+            outline: none;
+            padding: 10px 16px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background-color: #ddd;
+        }
+
+        .btn.active {
+            background-color: #666;
+            color: white;
+        }
+
+        img:hover {
+            /* Start the shake animation and make the animation last for 0.5 seconds */
+            animation: shake 3s;
+
+            /* When the animation is finished, start again */
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            background-color: red;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        #myBtn:hover {
+            background-color: #000;
+            color: #fff;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false">
+
+    <section>
+        <div class="col-2" id="123">
+            <div class="main">
+                <a href="#1234">
+                    <div class="calender">
+                        <div class="date">
+                            <h3>January 2025</h3>
+                            <div class="days">
+                                <div class="day">S</div>
+                                <div class="day">M</div>
+                                <div class="day">T</div>
+                                <div class="day">W</div>
+                                <div class="day">T</div>
+                                <div class="day">F</div>
+                                <div class="day">S</div>
+
+                                <div class="number"></div>
+                                <div class="number"></div>
+                                <div class="number"></div>
+                                <div class="number">1</div>
+                                <div class="number">2</div>
+                                <div class="number">3</div>
+                                <div class="number">4</div>
+                                <div class="number">5</div>
+                                <div class="number">6</div>
+                                <div class="number">7</div>
+                                <div class="number">8</div>
+                                <div class="number">9</div>
+                                <div class="number">10</div>
+                                <div class="number">11</div>
+                                <div class="number">12</div>
+                                <div class="number">13</div>
+                                <div class="number">14</div>
+                                <div class="number">15</div>
+                                <div class="number">16</div>
+                                <div class="active number">17</div>
+                                <div class="number">18</div>
+                                <div class="number">19</div>
+                                <div class="number">20</div>
+                                <div class="number">21</div>
+                                <div class="number">22</div>
+                                <div class="number">23</div>
+                                <div class="number">24</div>
+                                <div class="number">25</div>
+                                <div class="number">26</div>
+                                <div class="number">27</div>
+                                <div class="number">28</div>
+                                <div class="number">29</div>
+                                <div class="number">30</div>
+                                <div class="number">31</div>
+                            </div>
+                        </div>
+                        <div class="image">
+                            <h2>Friday</h2>
+                            <h3>17<sup>th</sup>, January | 2025 </h3>
+                            <h3><b style="color: aquamarine">Happy Birthday Sindhu<b
+                                        style="color:red;font-size: 25px;">&nbsp;&#10084;</b></b></h3>
+                            <img src="./Images/cal.jpeg">
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="Container">
+        <!-- last card -->
+        <div class="Picture-video" id="video">
+            <a href="BirthdayFav/birthdayFav.html">
+                <img class="Picture-img" src="https://iili.io/2wzD5OJ.md.jpg" alt="" />
+            </a>
+            <div class="Picture-note"><span>Happiest Birthday Baby🎉💖</span></div>
+        </div>
+    </div>
+    <!-- other cards -->
+
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/2.jpeg" alt="" />
+        <div class="Picture-note"><span>Happy 🎉❤️</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/Birthday.jpeg" alt="" />
+        <div class="Picture-note"><span>Birthday 🎂💕</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/11.jpeg" alt="" />
+        <div class="Picture-note"><span>Celebrate 🎉💖</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/gift.jpeg" alt="" />
+        <div class="Picture-note"><span>Gift (Ur Smile) 🎁❤️</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/41.jpeg" alt="" />
+        <div class="Picture-note"><span>Steak 💕🎈</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/10.jpeg" alt="" />
+        <div class="Picture-note"><span>Joy ❤️🎂</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/107.jpeg" alt="" />
+        <div class="Picture-note"><span>Fun 🎈💖</span></div>
+    </div>
+    <div class="Picture">
+        <img class="Picture-img" src="./Images/chill.jpeg" alt="" />
+        <div class="Picture-note"><span>Chill 💖🎂</span></div>
+    </div>
+
+    </div>
+
+
+    <!-- Header -->
+    <div class="header" id="myHeader">
+        <h1>You're beautiful Gallery</h1>
+        <button class="btn" onclick="one()">1</button>
+        <button class="btn active" onclick="two()">2</button>
+        <button class="btn" onclick="four()">4</button>
+    </div>
+
+    <!-- Photo Grid -->
+    <div class="row">
+        <div class="column">
+            <img src="./Images/1.jpeg" style="width:100%">
+            <img src="./Images/2.jpeg" style="width:100%">
+            <img src="./Images/3.jpeg" style="width:100%">
+            <img src="./Images/4.jpeg" style="width:100%">
+            <img src="./Images/5.jpeg" style="width:100%">
+            <img src="./Images/6.jpeg" style="width:100%">
+            <img src="./Images/7.jpeg" style="width:100%">
+            <img src="./Images/8.jpeg" style="width:100%">
+            <img src="./Images/9.jpeg" style="width:100%">
+            <img src="./Images/10.jpeg" style="width:100%">
+            <img src="./Images/11.jpeg" style="width:100%">
+            <img src="./Images/12.jpeg" style="width:100%">
+            <img src="./Images/13.jpeg" style="width:100%">
+            <img src="./Images/14.jpeg" style="width:100%">
+            <img src="./Images/15.jpeg" style="width:100%">
+            <img src="./Images/16.jpeg" style="width:100%">
+            <img src="./Images/17.jpeg" style="width:100%">
+            <img src="./Images/18.jpeg" style="width:100%">
+            <img src="./Images/19.jpeg" style="width:100%">
+            <img src="./Images/20.jpeg" style="width:100%">
+            <img src="./Images/21.jpeg" style="width:100%">
+            <img src="./Images/22.jpeg" style="width:100%">
+            <img src="./Images/23.jpeg" style="width:100%">
+            <img src="./Images/24.jpeg" style="width:100%">
+            <img src="./Images/25.jpeg" style="width:100%">
+            <img src="./Images/26.jpeg" style="width:100%">
+            <img src="./Images/27.jpeg" style="width:100%">
+            <img src="./Images/28.jpeg" style="width:100%">
+            <img src="./Images/29.jpeg" style="width:100%">
+            <img src="./Images/30.jpeg" style="width:100%">
+            <img src="./Images/31.jpeg" style="width:100%">
+            <img src="./Images/32.jpeg" style="width:100%">
+            <img src="./Images/33.jpeg" style="width:100%">
+            <img src="./Images/34.jpeg" style="width:100%">
+            <img src="./Images/35.jpeg" style="width:100%">
+            <img src="./Images/36.jpeg" style="width:100%">
+            <img src="./Images/37.jpeg" style="width:100%">
+            <img src="./Images/38.jpeg" style="width:100%">
+            <img src="./Images/39.jpeg" style="width:100%">
+            <img src="./Images/40.jpeg" style="width:100%">
+            <img src="./Images/41.jpeg" style="width:100%">
+            <img src="./Images/42.jpeg" style="width:100%">
+            <img src="./Images/43.jpeg" style="width:100%">
+            <img src="./Images/44.jpeg" style="width:100%">
+            <img src="./Images/45.jpeg" style="width:100%">
+            <img src="./Images/46.jpeg" style="width:100%">
+            <img src="./Images/92.jpeg" style="width:100%">
+            <img src="./Images/138.jpeg" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="./Images/07.jpeg" style="width:100%">
+            <img src="./Images/139.jpeg" style="width:100%">
+            <img src="./Images/140.jpeg" style="width:100%">
+            <img src="./Images/141.jpeg" style="width:100%">
+            <img src="./Images/142.jpeg" style="width:100%">
+            <img src="./Images/143.jpeg" style="width:100%">
+            <img src="./Images/144.jpeg" style="width:100%">
+            <img src="./Images/145.jpeg" style="width:100%">
+            <img src="./Images/146.jpeg" style="width:100%">
+            <img src="./Images/147.jpeg" style="width:100%">
+            <img src="./Images/148.jpeg" style="width:100%">
+            <img src="./Images/149.jpeg" style="width:100%">
+            <img src="./Images/150.jpeg" style="width:100%">
+            <img src="./Images/151.jpeg" style="width:100%">
+            <img src="./Images/152.jpeg" style="width:100%">
+            <img src="./Images/153.jpeg" style="width:100%">
+            <img src="./Images/154.jpeg" style="width:100%">
+            <img src="./Images/155.jpeg" style="width:100%">
+            <img src="./Images/156.jpeg" style="width:100%">
+            <img src="./Images/157.jpeg" style="width:100%">
+            <img src="./Images/158.jpeg" style="width:100%">
+            <img src="./Images/159.jpeg" style="width:100%">
+            <img src="./Images/160.jpeg" style="width:100%">
+            <img src="./Images/161.jpeg" style="width:100%">
+            <img src="./Images/162.jpeg" style="width:100%">
+            <img src="./Images/163.jpeg" style="width:100%">
+            <img src="./Images/164.jpeg" style="width:100%">
+            <img src="./Images/165.jpeg" style="width:100%">
+            <img src="./Images/166.jpeg" style="width:100%">
+            <img src="./Images/167.jpeg" style="width:100%">
+            <img src="./Images/168.jpeg" style="width:100%">
+            <img src="./Images/169.jpeg" style="width:100%">
+            <img src="./Images/170.jpeg" style="width:100%">
+            <img src="./Images/171.jpeg" style="width:100%">
+            <img src="./Images/172.jpeg" style="width:100%">
+            <img src="./Images/173.jpeg" style="width:100%">
+            <img src="./Images/174.jpeg" style="width:100%">
+            <img src="./Images/175.jpeg" style="width:100%">
+            <img src="./Images/176.jpeg" style="width:100%">
+            <img src="./Images/177.jpeg" style="width:100%">
+            <img src="./Images/178.jpeg" style="width:100%">
+            <img src="./Images/179.jpeg" style="width:100%">
+            <img src="./Images/180.jpeg" style="width:100%">
+            <img src="./Images/181.jpeg" style="width:100%">
+            <img src="./Images/182.jpeg" style="width:100%">
+            <img src="./Images/183.jpeg" style="width:100%">
+            <img src="./Images/185.jpeg" style="width:100%">
+
+        </div>
+        <div class="column">
+            <img src="./Images/03.jpeg" style="width:100%">
+            <img src="./Images/93.jpeg" style="width:100%">
+            <img src="./Images/94.jpeg" style="width:100%">
+            <img src="./Images/95.jpeg" style="width:100%">
+            <img src="./Images/96.jpeg" style="width:100%">
+            <img src="./Images/97.jpeg" style="width:100%">
+            <img src="./Images/98.jpeg" style="width:100%">
+            <img src="./Images/99.jpeg" style="width:100%">
+            <img src="./Images/100.jpeg" style="width:100%">
+            <img src="./Images/101.jpeg" style="width:100%">
+            <img src="./Images/102.jpeg" style="width:100%">
+            <img src="./Images/103.jpeg" style="width:100%">
+            <img src="./Images/104.jpeg" style="width:100%">
+            <img src="./Images/105.jpeg" style="width:100%">
+            <img src="./Images/106.jpeg" style="width:100%">
+            <img src="./Images/107.jpeg" style="width:100%">
+            <img src="./Images/108.jpeg" style="width:100%">
+            <img src="./Images/109.jpeg" style="width:100%">
+            <img src="./Images/110.jpeg" style="width:100%">
+            <img src="./Images/111.jpeg" style="width:100%">
+            <img src="./Images/112.jpeg" style="width:100%">
+            <img src="./Images/113.jpeg" style="width:100%">
+            <img src="./Images/114.jpeg" style="width:100%">
+            <img src="./Images/115.jpeg" style="width:100%">
+            <img src="./Images/116.jpeg" style="width:100%">
+            <img src="./Images/117.jpeg" style="width:100%">
+            <img src="./Images/118.jpeg" style="width:100%">
+            <img src="./Images/119.jpeg" style="width:100%">
+            <img src="./Images/120.jpeg" style="width:100%">
+            <img src="./Images/121.jpeg" style="width:100%">
+            <img src="./Images/122.jpeg" style="width:100%">
+            <img src="./Images/123.jpeg" style="width:100%">
+            <img src="./Images/124.jpeg" style="width:100%">
+            <img src="./Images/125.jpeg" style="width:100%">
+            <img src="./Images/126.jpeg" style="width:100%">
+            <img src="./Images/127.jpeg" style="width:100%">
+            <img src="./Images/128.jpeg" style="width:100%">
+            <img src="./Images/129.jpeg" style="width:100%">
+            <img src="./Images/130.jpeg" style="width:100%">
+            <img src="./Images/131.jpeg" style="width:100%">
+            <img src="./Images/132.jpeg" style="width:100%">
+            <img src="./Images/133.jpeg" style="width:100%">
+            <img src="./Images/134.jpeg" style="width:100%">
+            <img src="./Images/135.jpeg" style="width:100%">
+            <img src="./Images/136.jpeg" style="width:100%">
+            <img src="./Images/137.jpeg" style="width:100%">
+            <img src="./Images/186.jpeg" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="./Images/01.jpeg" style="width:100%">
+            <img src="./Images/47.jpeg" style="width:100%">
+            <img src="./Images/48.jpeg" style="width:100%">
+            <img src="./Images/49.jpeg" style="width:100%">
+            <img src="./Images/50.jpeg" style="width:100%">
+            <img src="./Images/51.jpeg" style="width:100%">
+            <img src="./Images/52.jpeg" style="width:100%">
+            <img src="./Images/53.jpeg" style="width:100%">
+            <img src="./Images/54.jpeg" style="width:100%">
+            <img src="./Images/55.jpeg" style="width:100%">
+            <img src="./Images/56.jpeg" style="width:100%">
+            <img src="./Images/57.jpeg" style="width:100%">
+            <img src="./Images/58.jpeg" style="width:100%">
+            <img src="./Images/59.jpeg" style="width:100%">
+            <img src="./Images/60.jpeg" style="width:100%">
+            <img src="./Images/61.jpeg" style="width:100%">
+            <img src="./Images/62.jpeg" style="width:100%">
+            <img src="./Images/63.jpeg" style="width:100%">
+            <img src="./Images/64.jpeg" style="width:100%">
+            <img src="./Images/65.jpeg" style="width:100%">
+            <img src="./Images/65.jpeg" style="width:100%">
+            <img src="./Images/67.jpeg" style="width:100%">
+            <img src="./Images/68.jpeg" style="width:100%">
+            <img src="./Images/69.jpeg" style="width:100%">
+            <img src="./Images/70.jpeg" style="width:100%">
+            <img src="./Images/71.jpeg" style="width:100%">
+            <img src="./Images/72.jpeg" style="width:100%">
+            <img src="./Images/73.jpeg" style="width:100%">
+            <img src="./Images/74.jpeg" style="width:100%">
+            <img src="./Images/75.jpeg" style="width:100%">
+            <img src="./Images/76.jpeg" style="width:100%">
+            <img src="./Images/77.jpeg" style="width:100%">
+            <img src="./Images/78.jpeg" style="width:100%">
+            <img src="./Images/79.jpeg" style="width:100%">
+            <img src="./Images/80.jpeg" style="width:100%">
+            <img src="./Images/81.jpeg" style="width:100%">
+            <img src="./Images/82.jpeg" style="width:100%">
+            <img src="./Images/83.jpeg" style="width:100%">
+            <img src="./Images/84.jpeg" style="width:100%">
+            <img src="./Images/85.jpeg" style="width:100%">
+            <img src="./Images/86.jpeg" style="width:100%">
+            <img src="./Images/87.jpeg" style="width:100%">
+            <img src="./Images/88.jpeg" style="width:100%">
+            <img src="./Images/89.jpeg" style="width:100%">
+            <img src="./Images/90.jpeg" style="width:100%">
+            <img src="./Images/91.jpeg" style="width:100%">
+            <img src="./Images/184.jpeg" style="width:100%">
+            <img src="./Images/187.jpeg" style="width:100%">
+        </div>
+    </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Up</button>
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+    </script>
+
+
+    <script>
+        // Get the elements with class="column"
+        var elements = document.getElementsByClassName("column");
+
+        // Declare a loop variable
+        var i;
+
+        // Full-width images
+        function one() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "100%"; // IE10
+                elements[i].style.flex = "100%";
+            }
+        }
+
+        // Two images side by side
+        function two() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "50%"; // IE10
+                elements[i].style.flex = "50%";
+            }
+        }
+
+        // Four images side by side
+        function four() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "25%"; // IE10
+                elements[i].style.flex = "25%";
+            }
+        }
+
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("myHeader");
+        var btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+    </script>
+    <script>
+        const pictures = document.querySelectorAll('.Picture');
+        var previousTouch = undefined;
+
+        function updateElementPosition(element, event) {
+            var movementX, movementY;
+
+            if (event.type === 'touchmove') {
+                const touch = event.touches[0];
+                movementX = previousTouch ? touch.clientX - previousTouch.clientX : 0;
+                movementY = previousTouch ? touch.clientY - previousTouch.clientY : 0;
+                console.log('touch', {
+                    movementX: movementX,
+                    newX: touch.clientX,
+                    oldX: previousTouch && previousTouch.clientX
+                });
+                previousTouch = touch;
+            } else {
+                movementX = event.movementX;
+                movementY = event.movementY;
+            }
+
+            const elementY = parseInt(element.style.top || 0) + movementY;
+            const elementX = parseInt(element.style.left || 0) + movementX;
+
+            element.style.top = elementY + "px";
+            element.style.left = elementX + "px";
+        }
+
+        function startDrag(element, event) {
+
+            const updateFunction = (event) => updateElementPosition(element, event);
+            const stopFunction = () => stopDrag({
+                update: updateFunction,
+                stop: stopFunction
+            });
+            document.addEventListener("mousemove", updateFunction);
+            document.addEventListener("touchmove", updateFunction);
+            document.addEventListener("mouseup", stopFunction);
+            document.addEventListener("touchend", stopFunction);
+
+        }
+
+        function stopDrag(functions) {
+            previousTouch = undefined;
+            document.removeEventListener("mousemove", functions.update);
+            document.removeEventListener("touchmove", functions.update);
+            document.removeEventListener("mouseup", functions.stop);
+            document.removeEventListener("touchend", functions.stop);
+        }
+
+        pictures.forEach(picture => {
+            const range = 100;
+            const randomX = Math.random() * (range * 2) - range;
+            const randomY = Math.random() * (range * 2) - range;
+            const randomRotate = Math.random() * (range / 2) - range / 4;
+            const startFunction = (event) => startDrag(picture, event);
+            picture.style.top = `${randomY}px`;
+            picture.style.left = `${randomX}px`;
+            picture.style.transform = `translate(-50%, -50%) rotate(${randomRotate}deg)`;
+            picture.addEventListener("mousedown", startFunction);
+            picture.addEventListener("touchstart", startFunction);
+        });
+
+    </script>
+
+</body>
+
+</html>
